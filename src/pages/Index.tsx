@@ -258,8 +258,16 @@ export default function Index() {
             <div className="border border-neon-cyan/30 box-glow p-8 bg-card/60">
               <Icon name="MapPin" className="text-neon-cyan animate-glow-pulse" size={28} />
               <div className="mt-4 font-display font-bold uppercase text-2xl">Екатеринбург</div>
-              <p className="font-mono text-xs text-muted-foreground mt-2">56.8389° N · 60.6057° E · топография микрорайонов</p>
-              <div className="mt-6 grid grid-cols-3 gap-px bg-border">
+              <p className="font-mono text-xs text-muted-foreground mt-2">ул. Розы Люксембург, стр. 25, помещ. 27</p>
+              <a
+                href="https://2gis.ru/ekaterinburg/search/%D1%83%D0%BB.%20%D0%A0%D0%BE%D0%B7%D1%8B%20%D0%9B%D1%8E%D0%BA%D1%81%D0%B5%D0%BC%D0%B1%D1%83%D1%80%D0%B3%2025%2C%20%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 flex items-center gap-2 border border-neon-cyan/40 text-neon-cyan px-4 py-2.5 font-mono text-xs uppercase tracking-widest hover:bg-neon-cyan/10 transition-colors w-fit"
+              >
+                <Icon name="ExternalLink" size={14} /> Открыть на 2ГИС
+              </a>
+              <div className="mt-5 grid grid-cols-3 gap-px bg-border">
                 {Array.from({ length: 9 }).map((_, i) => (
                   <div key={i} className="aspect-square bg-card grid-bg" />
                 ))}
@@ -276,7 +284,7 @@ export default function Index() {
           <div className="space-y-6 font-mono text-sm">
             <ContactRow icon="Phone" label="Телефон" value="+7 (343) 000-00-00" />
             <ContactRow icon="Mail" label="Почта" value="info@ottenok-ab.ru" />
-            <ContactRow icon="MapPin" label="Офис" value="Екатеринбург, ул. Розы Люксембург, стр. 25, помещ. 27" />
+            <ContactRow icon="MapPin" label="Офис" value="Екатеринбург, ул. Розы Люксембург, стр. 25, помещ. 27" href="https://2gis.ru/ekaterinburg/search/%D1%83%D0%BB.%20%D0%A0%D0%BE%D0%B7%D1%8B%20%D0%9B%D1%8E%D0%BA%D1%81%D0%B5%D0%BC%D0%B1%D1%83%D1%80%D0%B3%2025%2C%20%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3" />
             <ContactRow icon="Clock" label="Часы работы" value="Пн–Пт · 09:00–18:00" />
           </div>
 
@@ -326,7 +334,7 @@ function SectionTitle({ index, title, subtitle }: { index: string; title: string
   );
 }
 
-function ContactRow({ icon, label, value }: { icon: string; label: string; value: string }) {
+function ContactRow({ icon, label, value, href }: { icon: string; label: string; value: string; href?: string }) {
   return (
     <div className="flex items-center gap-4 border-b border-border pb-5">
       <div className="w-11 h-11 shrink-0 flex items-center justify-center border border-neon-cyan/40 text-neon-cyan">
@@ -334,7 +342,13 @@ function ContactRow({ icon, label, value }: { icon: string; label: string; value
       </div>
       <div>
         <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{label}</div>
-        <div className="text-foreground text-base mt-0.5">{value}</div>
+        {href ? (
+          <a href={href} target="_blank" rel="noopener noreferrer" className="text-foreground text-base mt-0.5 hover:text-neon-cyan transition-colors flex items-center gap-1.5">
+            {value} <Icon name="ExternalLink" size={13} className="text-neon-cyan/60" />
+          </a>
+        ) : (
+          <div className="text-foreground text-base mt-0.5">{value}</div>
+        )}
       </div>
     </div>
   );
