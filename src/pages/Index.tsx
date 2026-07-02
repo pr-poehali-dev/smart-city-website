@@ -19,22 +19,22 @@ const nav = [
 
 const modules = [
   {
-    icon: 'Map',
-    title: 'Генеральный план',
-    desc: 'Пространственная организация квартала, транспортный каркас, благоустройство и социальная инфраструктура.',
-    tag: 'MASTERPLAN',
-  },
-  {
-    icon: 'Building2',
-    title: 'Фасады',
-    desc: 'Параметрическая архитектура фасадов, светопрозрачные конструкции и энергоэффективные решения.',
-    tag: 'FACADES',
+    icon: 'FileText',
+    title: 'Проектная документация',
+    desc: 'Разработка по ПП РФ №87 для прохождения экспертиз, рабочей документации по СПДС и BIM-моделей объектов.',
+    tag: 'DOCUMENTATION',
   },
   {
     icon: 'Box',
-    title: '3D-модели',
-    desc: 'BIM-модели и цифровые двойники зданий с проработкой инженерных сетей до узла.',
+    title: 'BIM-моделирование',
+    desc: 'BIM-модели новых и действующих объектов, цифровые двойники для работы персонала предприятий заказчика.',
     tag: 'BIM / 3D',
+  },
+  {
+    icon: 'Eye',
+    title: 'Авторский надзор',
+    desc: 'Надзор за строительством, исполнительная документация по факту реализации инвестиционного проекта.',
+    tag: 'SUPERVISION',
   },
 ];
 
@@ -46,10 +46,46 @@ const projects = [
 ];
 
 const services = [
-  { icon: 'PenTool', title: 'Генеральное проектирование', desc: 'Полный цикл: от концепции до рабочей документации.' },
-  { icon: 'Ruler', title: 'Градостроительство', desc: 'Проекты планировки и межевания территорий.' },
-  { icon: 'Network', title: 'Инженерные сети', desc: 'Проектирование ВК, отопления, электро- и слаботочных систем.' },
-  { icon: 'ShieldCheck', title: 'Экспертиза и надзор', desc: 'Сопровождение прохождения госэкспертизы, авторский надзор.' },
+  {
+    icon: 'FileText',
+    title: 'Проектная документация',
+    desc: 'Разработка по ПП РФ №87 для прохождения экспертиз, рабочей документации по СПДС, BIM-моделей объектов строительства.',
+  },
+  {
+    icon: 'Eye',
+    title: 'Авторский надзор',
+    desc: 'Надзор за строительством, исполнительная документация по факту реализации, BIM-модель по итогам инвестпроекта.',
+  },
+  {
+    icon: 'MessageSquare',
+    title: 'Техническое консультирование',
+    desc: 'Консультирование заказчика по техническим вопросам для определения целей инвестирования.',
+  },
+  {
+    icon: 'Lightbulb',
+    title: 'Предпроектные проработки',
+    desc: 'Общие технические решения и концепты для принятия решений о начале инвестирования.',
+  },
+  {
+    icon: 'Box',
+    title: 'BIM-моделирование',
+    desc: 'Формирование BIM-моделей действующих объектов для работы персонала предприятий заказчика.',
+  },
+  {
+    icon: 'ClipboardList',
+    title: 'Помощь в составлении ТЗ',
+    desc: 'Содействие заказчику в составлении и утверждении технического задания на проектирование.',
+  },
+  {
+    icon: 'PenTool',
+    title: 'Дизайн-проектирование',
+    desc: 'Полный цикл дизайнерских решений любых объектов по брендбуку, техническому заданию или без него.',
+  },
+  {
+    icon: 'Layers',
+    title: 'Комплексные изыскания',
+    desc: 'Инженерно-геодезические, геологические и экологические изыскания для проектирования объектов.',
+  },
 ];
 
 const stats = [
@@ -186,17 +222,15 @@ export default function Index() {
 
       {/* SERVICES */}
       <section id="services" className="container py-20">
-        <SectionTitle index="03" title="Услуги" subtitle="Полный цикл проектной деятельности" />
-        <div className="grid sm:grid-cols-2 gap-6 mt-12">
+        <SectionTitle index="03" title="Услуги" subtitle="Полный цикл от идеи до ввода объекта в эксплуатацию" />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border mt-12 border border-border">
           {services.map((s) => (
-            <div key={s.title} className="flex gap-5 bg-card border border-border p-7 box-glow-hover">
-              <div className="shrink-0 w-12 h-12 flex items-center justify-center border border-neon-blue/40 text-neon-blue">
-                <Icon name={s.icon} size={22} />
+            <div key={s.title} className="group flex flex-col gap-4 bg-card p-6 box-glow-hover">
+              <div className="w-11 h-11 flex items-center justify-center border border-neon-blue/40 text-neon-blue group-hover:bg-neon-blue/10 transition-colors">
+                <Icon name={s.icon} size={20} />
               </div>
-              <div>
-                <h3 className="font-display font-semibold uppercase text-lg tracking-wide">{s.title}</h3>
-                <p className="mt-2 text-muted-foreground text-sm">{s.desc}</p>
-              </div>
+              <h3 className="font-display font-semibold uppercase text-base tracking-wide leading-tight">{s.title}</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed flex-1">{s.desc}</p>
             </div>
           ))}
         </div>
