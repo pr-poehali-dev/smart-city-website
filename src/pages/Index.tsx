@@ -7,6 +7,9 @@ import { Textarea } from '@/components/ui/textarea';
 const HERO_IMG =
   'https://cdn.poehali.dev/projects/17349256-b48f-4ec4-bde4-ade5e7ace309/files/b5d8223a-e236-4877-97ff-57f2afde78ca.jpg';
 
+const LOGO =
+  'https://cdn.poehali.dev/projects/17349256-b48f-4ec4-bde4-ade5e7ace309/bucket/430129fc-7c77-4596-b840-3b4d13c41b54.png';
+
 const nav = [
   { label: 'Портфолио', href: '#portfolio' },
   { label: 'Услуги', href: '#services' },
@@ -64,9 +67,11 @@ export default function Index() {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
         <div className="container flex h-16 items-center justify-between">
-          <a href="#" className="flex items-center gap-2 font-display font-bold tracking-widest text-lg">
-            <Icon name="Hexagon" className="text-neon-cyan" size={22} />
-            <span>ГЕН<span className="text-neon-cyan">ПРОЕКТ</span></span>
+          <a href="#" className="flex items-center gap-3">
+            <img src={LOGO} alt="Оттенок" className="h-10 w-auto rounded-sm bg-white/95 px-1.5 py-1 box-glow" />
+            <span className="hidden sm:block font-display font-bold uppercase tracking-widest text-sm leading-tight">
+              Архитектурное бюро<br /><span className="text-neon-cyan">«Оттенок»</span>
+            </span>
           </a>
           <nav className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-muted-foreground">
             {nav.map((n) => (
@@ -90,7 +95,7 @@ export default function Index() {
         <div className="container relative py-20 md:py-28 grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in">
             <p className="font-mono text-xs uppercase tracking-[0.3em] text-neon-cyan mb-6 flex items-center gap-3">
-              <span className="inline-block w-10 h-px bg-neon-cyan" /> Smart City · Генпроектирование
+              <span className="inline-block w-10 h-px bg-neon-cyan" /> Smart City · Архитектурное бюро «Оттенок»
             </p>
             <h1 className="font-display font-bold uppercase leading-[0.95] text-4xl sm:text-5xl md:text-6xl">
               Проектируем <span className="text-neon-cyan text-glow">умные</span> города будущего
@@ -204,7 +209,7 @@ export default function Index() {
           <div>
             <SectionTitle index="04" title="О компании" subtitle="" />
             <p className="mt-8 text-muted-foreground text-lg leading-relaxed">
-              <span className="text-foreground font-medium">ГЕНПРОЕКТ</span> — генеральный проектировщик с центром в Екатеринбурге. Мы объединяем градостроителей, архитекторов и инженеров вокруг единой BIM-модели и концепции «Умного города».
+              <span className="text-foreground font-medium">Архитектурное бюро «Оттенок»</span> — генеральный проектировщик с центром в Екатеринбурге. Мы объединяем градостроителей, архитекторов и инженеров вокруг единой BIM-модели и концепции «Умного города».
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Проектируем микрорайоны с продуманной топографией, транспортным каркасом и светящейся картой инженерных сетей — от школы во дворе до магистральной теплотрассы.
@@ -236,8 +241,8 @@ export default function Index() {
         <div className="grid lg:grid-cols-2 gap-12 mt-12">
           <div className="space-y-6 font-mono text-sm">
             <ContactRow icon="Phone" label="Телефон" value="+7 (343) 000-00-00" />
-            <ContactRow icon="Mail" label="Почта" value="info@genproekt.ru" />
-            <ContactRow icon="MapPin" label="Офис" value="Екатеринбург, ул. Малышева, 51" />
+            <ContactRow icon="Mail" label="Почта" value="info@ottenok-ab.ru" />
+            <ContactRow icon="MapPin" label="Офис" value="Екатеринбург, ул. Розы Люксембург, стр. 25, помещ. 27" />
             <ContactRow icon="Clock" label="Часы работы" value="Пн–Пт · 09:00–18:00" />
           </div>
 
@@ -266,10 +271,11 @@ export default function Index() {
       {/* FOOTER */}
       <footer className="border-t border-border">
         <div className="container py-8 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs text-muted-foreground">
-          <div className="flex items-center gap-2 font-display font-bold tracking-widest text-foreground text-sm">
-            <Icon name="Hexagon" className="text-neon-cyan" size={18} /> ГЕНПРОЕКТ
+          <div className="flex items-center gap-2.5 font-display font-bold uppercase tracking-widest text-foreground text-sm">
+            <img src={LOGO} alt="Оттенок" className="h-8 w-auto rounded-sm bg-white/95 px-1 py-0.5" />
+            Архитектурное бюро «Оттенок»
           </div>
-          <p>© 2026 ГЕНПРОЕКТ · Генеральное проектирование · Умный город</p>
+          <p>© 2026 АБ «Оттенок» · Екатеринбург, ул. Розы Люксембург, 25</p>
         </div>
       </footer>
     </div>
